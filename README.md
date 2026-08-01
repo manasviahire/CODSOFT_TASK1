@@ -1,84 +1,170 @@
 # CODSOFT_TASK1
 DATA CLEANING &amp; PREPROCESSING
-# Import Pandas
-import pandas as pd
+# 🧹 Data Cleaning and Preprocessing using Python
 
-# Step 1: Load the dataset
-# Replace 'dataset.csv' with your file name
-df = pd.read_csv("dataset.csv")
+<p align="center">
+  <img src="task1.png" width="800">
+</p>
 
-# Step 2: Inspect the dataset
-print("First 5 rows:")
-print(df.head())
+## 📌 Project Overview
 
-print("\nDataset Information:")
-print(df.info())
+This project demonstrates the complete **Data Cleaning and Preprocessing** workflow using **Python** and **Pandas**. The dataset was inspected, cleaned, and prepared for further analysis by handling missing values, removing duplicates, correcting data types, and standardizing inconsistent entries.
 
-print("\nDataset Shape:")
-print(df.shape)
+---
 
-print("\nSummary Statistics:")
-print(df.describe(include='all'))
+## 🎯 Objectives
 
-# Step 3: Identify missing values
-print("\nMissing Values:")
-print(df.isnull().sum())
+- Import and inspect the dataset
+- Identify missing values
+- Detect duplicate records
+- Check and correct data types
+- Handle inconsistent data entries
+- Prepare the dataset for analysis
+- Save the cleaned dataset as a new CSV file
 
-# Step 4: Identify duplicate records
-duplicates = df.duplicated().sum()
-print("\nNumber of Duplicate Rows:", duplicates)
+---
 
-# Step 5: Check data types
-print("\nData Types:")
-print(df.dtypes)
+## 🛠️ Technologies Used
 
-# -----------------------------
-# Data Cleaning
-# -----------------------------
+- Python
+- Pandas
+- NumPy
 
-# Step 6: Remove duplicate rows
-df = df.drop_duplicates()
+---
 
-# Step 7: Handle missing values
+## 📂 Project Files
 
-# Fill missing values in numeric columns with the median
-numeric_cols = df.select_dtypes(include=['number']).columns
-for col in numeric_cols:
-    df[col] = df[col].fillna(df[col].median())
+```
+├── README.md
+├── data_cleaning.py
+├── Retail_Sales_EDA_Dataset.csv
+├── Retail_Sales_Cleaned.csv
+├── task1.png
+├── duplicate.png
+├── cleaneddataset.png
+└── aftercleaning.png
+```
 
-# Fill missing values in categorical columns with the mode
-categorical_cols = df.select_dtypes(include=['object']).columns
-for col in categorical_cols:
-    if not df[col].mode().empty:
-        df[col] = df[col].fillna(df[col].mode()[0])
+---
 
-# Step 8: Remove extra spaces from text columns
-for col in categorical_cols:
-    df[col] = df[col].str.strip()
+# 📊 Dataset Preview
 
-# Step 9: Convert data types where necessary
+<p align="center">
+  <img src="task1.png" width="850">
+</p>
 
-# Example: Convert a date column (change column name if needed)
-if 'Date' in df.columns:
-    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+The dataset contains retail sales information including customer details, product categories, sales amount, discounts, ratings, and delivery information.
 
-# Example: Convert Age column to integer (if present)
-if 'Age' in df.columns:
-    df['Age'] = pd.to_numeric(df['Age'], errors='coerce')
-    df['Age'] = df['Age'].fillna(df['Age'].median()).astype(int)
+---
 
-# Step 10: Check cleaned dataset
-print("\nMissing Values After Cleaning:")
-print(df.isnull().sum())
+# 🔍 Duplicate Records Detection
 
-print("\nDuplicate Rows After Cleaning:")
-print(df.duplicated().sum())
+<p align="center">
+  <img src="duplicate.png" width="850">
+</p>
 
-print("\nUpdated Data Types:")
-print(df.dtypes)
+### ✔ Operations Performed
 
-# Step 11: Save the cleaned dataset
-df.to_csv("cleaned_dataset.csv", index=False)
+- Checked duplicate rows using `duplicated()`
+- Counted duplicate records
+- Removed duplicates using `drop_duplicates()`
 
-print("\nData cleaning completed successfully!")
-print("Cleaned dataset saved as 'cleaned_dataset.csv'.")
+---
+
+# 🧹 Cleaned Dataset
+
+<p align="center">
+  <img src="cleaneddataset.png" width="850">
+</p>
+
+### ✔ Data Cleaning Steps
+
+- Filled missing values
+- Removed duplicate records
+- Corrected data types
+- Standardized categorical values
+- Verified dataset consistency
+
+---
+
+# ✅ Final Dataset After Cleaning
+
+<p align="center">
+  <img src="aftercleaning.png" width="850">
+</p>
+
+The final dataset is free from missing values and duplicate records, making it suitable for visualization, statistical analysis, and machine learning.
+
+---
+
+# 🔧 Data Cleaning Process
+
+✔ Imported dataset using Pandas
+
+✔ Inspected dataset structure
+
+✔ Checked missing values
+
+✔ Identified duplicate records
+
+✔ Removed duplicates
+
+✔ Filled missing values
+
+✔ Corrected data types
+
+✔ Standardized inconsistent values
+
+✔ Saved cleaned dataset as a new CSV file
+
+---
+
+# 📈 Results
+
+| Task | Status |
+|------|--------|
+| Dataset Imported | ✅ |
+| Data Inspection | ✅ |
+| Missing Values Handled | ✅ |
+| Duplicate Records Removed | ✅ |
+| Data Types Corrected | ✅ |
+| Dataset Cleaned | ✅ |
+| Cleaned CSV Generated | ✅ |
+
+---
+
+# 📁 Output
+
+The cleaned dataset is exported as:
+
+```
+Retail_Sales_Cleaned.csv
+```
+
+---
+
+# 🚀 Skills Demonstrated
+
+- Data Cleaning
+- Data Preprocessing
+- Data Inspection
+- Missing Value Handling
+- Duplicate Detection
+- Data Type Conversion
+- Pandas
+- Python
+
+---
+
+# 📌 Conclusion
+
+The dataset was successfully cleaned and transformed into a structured format suitable for further **Exploratory Data Analysis (EDA)**, **Data Visualization**, and **Machine Learning**. This preprocessing step ensures higher data quality and improves the reliability of future analyses.
+
+---
+
+## 👩‍💻 Author
+
+**Manasvi Ahire**
+
+**Data Analytics Intern**
+
